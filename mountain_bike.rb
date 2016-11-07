@@ -15,26 +15,34 @@ class MountainBike
   end
 
   def find_longest_path
+    # max possible path
+    for row in 0..(rows - 1) do
+      for col in 0..(cols - 1) do
+        path_for_point(row, col, [mountain[row][col]])
+      end
+    end
+
+    # !!! max path from one of point exactly to the mountain border
     # North border of the mountain
-    row = 0
-    for col in 0..(cols - 1)
-      path_for_point(row, col, [mountain[row][col]])
-    end
+    #row = 0
+    #for col in 0..(cols - 1)
+    #  path_for_point(row, col, [mountain[row][col]])
+    #end
     # South border of the mountain
-    row = rows - 1
-    for col in 0..(cols - 1)
-      path_for_point(row, col, [mountain[row][col]])
-    end
+    #row = rows - 1
+    #for col in 0..(cols - 1)
+    #  path_for_point(row, col, [mountain[row][col]])
+    #end
     # West border of the mountain
-    col = 0
-    for row in 1..(rows - 2) do
-      path_for_point(row, col, [mountain[row][col]])
-    end 
+    #col = 0
+    #for row in 1..(rows - 2) do
+    #  path_for_point(row, col, [mountain[row][col]])
+    #end 
     # East border of the mountain
-    col = cols - 1
-    for row in 1..(rows - 2) do
-      path_for_point(row, col, [mountain[row][col]])
-    end
+    #col = cols - 1
+    #for row in 1..(rows - 2) do
+    #  path_for_point(row, col, [mountain[row][col]])
+    #end
     # return length of max path
     max_path.to_a.length 
   end
